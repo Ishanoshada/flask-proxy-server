@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiyan </title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .parallax {
+            perspective: 1px;
+            height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .parallax__layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .parallax__layer--back {
+            transform: translateZ(-1px) scale(2);
+        }
+        .parallax__layer--base {
+            transform: translateZ(0);
+        }
+        .stars {
+            background: #000 url('https://i.ibb.co/HFcQGWz/Whats-App-Image-2024-10-08-at-16-45-22.jpg') repeat;
+            animation: twinkle 10s linear infinite;
+        }
+        @keyframes twinkle {
+            from { background-position: 0 0; }
+            to { background-position: -1000px 0; }
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff00de, 0 0 35px #ff00de, 0 0 40px #ff00de, 0 0 50px #ff00de, 0 0 75px #ff00de; }
+            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de; }
+        }
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #ff00de, #00a1ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax">
+        <div class="parallax__layer parallax__layer--back stars"></div>
+        <div class="parallax__layer parallax__layer--base">
+            <div class="content">
+                <h1>Tiyan</h1>
+                <p>Embark on a journey through the cosmos, where imagination knows no bounds and creativity flows like stardust.</p>
+                <a href="#" class="btn">Explore the Universe</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const stars = document.querySelector('.stars');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            stars.style.transform = `translate(${x * 50}px, ${y * 50}px)`;
+        });
+    </script>
+</body>
+</html>
