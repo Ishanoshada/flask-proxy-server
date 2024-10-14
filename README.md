@@ -1,6 +1,6 @@
-<p align="center">
-# 🌐 Flask Proxy Server
-</p>
+<h1 align="center">
+ 🌐 Flask Proxy Server
+</h1>
 
 ![GitHub stars](https://img.shields.io/github/stars/ishanoshada/flask-proxy-server?style=social) ![GitHub forks](https://img.shields.io/github/forks/ishanoshada/flask-proxy-server?style=social) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
