@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Define allowed and blocked domains
-WHITELISTED_DOMAINS = ['example.com', 'jsonplaceholder.typicode.com']  # Add allowed domains here
+WHITELISTED_DOMAINS = ['example.com', 'jsonplaceholder.typicode.com', '*']  # Add allowed domains here
 BLACKLISTED_DOMAINS = ['badwebsite.com', 'malicious.com']  # Add blocked domains here
 
 # Define allowed IP addresses
@@ -37,6 +37,10 @@ def is_valid_url(url):
     
     if domain in BLACKLISTED_DOMAINS:
         return False
+    
+    # Allow all domains if '*' is present in WHITELISTED_DOMAINS
+    if '*' in WHITELISTED_DOMAINS:
+        return True
     
     if WHITELISTED_DOMAINS and domain not in WHITELISTED_DOMAINS:
         return False
