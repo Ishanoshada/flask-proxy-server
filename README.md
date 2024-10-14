@@ -49,6 +49,135 @@ Make sure you have Python 3.x installed on your machine.
 
 ---
 
+## 📑 Example Usage
+
+
+### 1. GET Request
+
+Retrieve data from an external API.
+
+**Request:**
+```bash
+curl -X GET "http://localhost:5000/?url=https://jsonplaceholder.typicode.com/posts"
+```
+
+**Response:**
+```json
+[
+  {
+    "userId": 1,
+    "id": 1,
+    "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+    "body": "quia et suscipit\nsuscipit..."
+  },
+  ...
+]
+```
+
+<details>
+<summary>Click to expand</summary>
+
+
+### 2. POST Request
+
+Send data to an external API.
+
+**Request:**
+```bash
+curl -X POST "http://localhost:5000/?url=https://jsonplaceholder.typicode.com/posts" \
+-H "Content-Type: application/json" \
+-d '{"title": "foo", "body": "bar", "userId": 1}'
+```
+
+**Response:**
+```json
+{
+  "id": 101,
+  "title": "foo",
+  "body": "bar",
+  "userId": 1
+}
+```
+
+### 3. PUT Request
+
+Update existing data at an external API.
+
+**Request:**
+```bash
+curl -X PUT "http://localhost:5000/?url=https://jsonplaceholder.typicode.com/posts/1" \
+-H "Content-Type: application/json" \
+-d '{"id": 1, "title": "updated title", "body": "updated body", "userId": 1}'
+```
+
+**Response:**
+```json
+{
+  "id": 1,
+  "title": "updated title",
+  "body": "updated body",
+  "userId": 1
+}
+```
+
+### 4. DELETE Request
+
+Delete data at an external API.
+
+**Request:**
+```bash
+curl -X DELETE "http://localhost:5000/?url=https://jsonplaceholder.typicode.com/posts/1"
+```
+
+**Response:**
+```json
+{
+  "message": "Post deleted successfully"
+}
+```
+
+### 5. PATCH Request
+
+Partially update data at an external API.
+
+**Request:**
+```bash
+curl -X PATCH "http://localhost:5000/?url=https://jsonplaceholder.typicode.com/posts/1" \
+-H "Content-Type: application/json" \
+-d '{"title": "patched title"}'
+```
+
+**Response:**
+```json
+{
+  "id": 1,
+  "title": "patched title",
+  "body": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "userId": 1
+}
+```
+
+### 6. OPTIONS Request
+
+Check which HTTP methods are supported by the external API.
+
+**Request:**
+```bash
+curl -X OPTIONS "http://localhost:5000/?url=https://jsonplaceholder.typicode.com/posts"
+```
+
+**Response:**
+```http
+HTTP/1.1 200 OK
+Allow: GET, POST, PUT, DELETE, PATCH, OPTIONS
+```
+
+</details>
+
+---
+
+
+
 ## 🔧 Configuration
 
 Customize the server's behavior by modifying the following variables in `api/app.py`:
