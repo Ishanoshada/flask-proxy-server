@@ -1,6 +1,7 @@
 <p align="center">
 # 🌐 Flask Proxy Server
 </p>
+
 ![GitHub stars](https://img.shields.io/github/stars/ishanoshada/flask-proxy-server?style=social) ![GitHub forks](https://img.shields.io/github/forks/ishanoshada/flask-proxy-server?style=social) ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
 Welcome to **Flask Proxy Server**! This project is a powerful and secure proxy server built using Flask. It provides enhanced input validation, domain whitelisting/blacklisting, header management, and IP-based access control, all while being simple to set up and use.
