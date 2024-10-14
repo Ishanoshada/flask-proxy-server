@@ -20,7 +20,7 @@ WHITELISTED_DOMAINS = ['example.com', 'jsonplaceholder.typicode.com']  # Add all
 BLACKLISTED_DOMAINS = ['badwebsite.com', 'malicious.com']  # Add blocked domains here
 
 # Define allowed IP addresses
-ALLOWED_IPS = {'127.0.0.1'}  # Add allowed IP addresses here
+ALLOWED_IPS = {'127.0.0.1', '*'}  # Add allowed IP addresses here, '*' allows all
 
 # Helper function to sanitize URL input
 def sanitize_input(url):
@@ -57,7 +57,7 @@ def log_request(url, method, status_code, duration):
 # IP-based access control
 def is_allowed_ip():
     client_ip = request.remote_addr
-    return client_ip in ALLOWED_IPS
+    return '*' in ALLOWED_IPS or client_ip in ALLOWED_IPS
 
 @app.route('/', methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS', 'HEAD'])
 def proxy():
@@ -118,4 +118,4 @@ def proxy():
 
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=5000,debug=True)
+    app.run(debug=True)
